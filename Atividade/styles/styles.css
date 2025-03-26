@@ -254,17 +254,17 @@ body {
 }
 
 /* Respansividadeeee */
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 730px) {
   .cloud:nth-child(1) {
-    top: 2.5%;
+    top: 2%;
     left: -27%;
   }
   .cloud:nth-child(2) {
-    top: 2.5%;
+    top: 2%;
     left: -2%;
   }
   .cloud:nth-child(3) {
-    top: 9.5%;
+    top: 8%;
     left: -27%;
   }
   .container {
@@ -285,8 +285,9 @@ body {
 
   .image_container h1,
   .image_container p {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    justify-items: center;
+    align-items: center;
   }
   #cadastroForm {
     padding: 15px;
