@@ -23,6 +23,70 @@ body {
   align-items: center;
 }
 
+.container_rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.cloud {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  background: url(../imgs/nuvem.png) center / cover no-repeat;
+  filter: drop-shadow(2px 2px 20px #e3eed4);
+}
+
+.cloud:nth-child(1) {
+  top: 2.5%;
+  left: 5%;
+}
+.cloud:nth-child(2) {
+  z-index: 112;
+  top: 2.5%;
+  left: 24%;
+}
+.cloud:nth-child(3) {
+  z-index: 1120;
+  top: 9.5%;
+  left: 5%;
+}
+
+.rain {
+  background-color: #e3eed4;
+  width: 5px;
+  height: 5px;
+  border: 0 50% 50% 50%;
+  transform: rotate(45deg);
+  box-shadow: inset -25px 10px 0px -10px #fefefe;
+  z-index: 100;
+  position: absolute;
+  top: 90px;
+  transform-origin: bottom;
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(80vh) scaleY(1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(80vh) scaleY(0.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(80vh) scaleY(0.2);
+    opacity: 0;
+  }
+}
 .container {
   width: 80%;
   height: 80%;

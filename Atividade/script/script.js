@@ -134,7 +134,26 @@ function fetchDatas(event) {
 }
 /* ---------------------------------------------------------------------------------*/
 
-formulario.addEventListener("submit", fetchDatas);
+/* -----------------Função para criar a chuva no formulário--------------------------*/
+const rainfunction = () => {
+  let rain = document.createElement("span");
+  let cont_rain = document.getElementsByClassName("container_rain");
+  let left = Math.floor(Math.random() * (310 - 65) + 65);
+  let duration = Math.random() * 5;
+
+  rain.classList.add("rain");
+  cont_rain[0].appendChild(rain);
+  rain.style.left = left + "px";
+  rain.style.animationDuration = 1 + duration;
+
+  setTimeout(() => {
+    cont_rain[0].removeChild(rain);
+  }, 1500);
+};
+setInterval(() => {
+  rainfunction();
+}, 250);
+/* ---------------------------------------------------------------------------------*/
 
 nome.addEventListener("input", () => {
   if (nome.value && !checkNome()) {
@@ -161,5 +180,7 @@ password.addEventListener("input", () => {
     createDisplayMsgError("");
   }
 });
+
+formulario.addEventListener("submit", fetchDatas);
 
 telefone.addEventListener("input", maskPhoneNumber);
