@@ -21,6 +21,35 @@ const checkNome = () => {
   return nomeRegex.test(nome.value);
 };
 /* ---------------------------------------------------------------------------------*/
+/*-----------------Função Para Mascarar o CPF ---------------*/
+document.getElementById("cpf").addEventListener("input", function (event) {
+  let inputValue = event.target.value.replace(/\D/g, "");
+  inputValue = inputValue.substring(0, 11);
+
+  if (inputValue.length > 9) {
+    inputValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})/, "$1.$2.$3-");
+  } else if (inputValue.length > 6) {
+    inputValue = inputValue.replace(/(\d{3})(\d{3})/, "$1.$2.");
+  } else if (inputValue.length > 3) {
+    inputValue = inputValue.replace(/(\d{3})/, "$1.");
+  }
+
+  event.target.value = inputValue;
+});
+/* ---------------------------------------------------------------------------------*/
+/*-----------------Função Para mascarar O rg ---------------*/
+document.getElementById("rg").addEventListener("input", function (event) {
+  let rgmask = event.target.value.replace(/\D/g, "");
+  rgmask = rgmask.substring(0, 9);
+
+  if (rgmask.length > 8) {
+    rgmask = rgmask.replace(/(\d{2})(\d{3})(\d{3})/, "$1.$2.$3-");
+  }
+
+  event.target.value = rgmask;
+});
+/* --
+/* ---------------------------------------------------------------------------------*/
 /*-----------------Função Para Verificar O Email ---------------*/
 const checkEmail = (email) => {
   const partesEmail = email.split("@");
@@ -184,3 +213,19 @@ password.addEventListener("input", () => {
 formulario.addEventListener("submit", fetchDatas);
 
 telefone.addEventListener("input", maskPhoneNumber);
+
+// function maskRG(event) {
+//   let inputValue = event.target.value;
+//   inputValue = inputValue.replace(/[^0-9X]/gi, "");
+//   if (inputValue.length > 10) {
+//     inputValue = inputValue.substring(0, 9);
+//   }
+//   inputValue = inputValue.replace(/^(\w{2})(\w)/, "$1.$2");
+//   inputValue = inputValue.replace(/^(\w{2})\.(\w{3})(\w)/, "$1.$2.$3");
+//   inputValue = inputValue.replace(
+//     /^(\w{2})\.(\w{3})\.(\w{3})(\w)/,
+//     "$1.$2.$3-$4"
+//   );
+//   event.target.value = inputValue;
+// }
+// rg.addEventListener("input", maskRG);
